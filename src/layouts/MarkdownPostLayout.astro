@@ -1,6 +1,9 @@
 ---
+import BaseLayout from './BaseLayout.astro';
 const { frontmatter } = Astro.props;
+const author = "John Ragozzine";
 ---
-<h1>{frontmatter.title}</h1>
-<p>{frontmatter.pubDate.toString().slice(0,10)} &bull; {frontmatter.author}</p>
-<slot />
+<BaseLayout pageTitle={frontmatter.title}>
+  <p>{frontmatter.pubDate.toString().slice(0,10)} &bull; { author }</p>
+  <slot />
+</BaseLayout>
